@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
       children: <Widget>[
         // Setup the card
         new MyCard(
-            icon: new Icon(Icons.today, size: myIconSize, color: Colors.lightGreen),
+
             // Setup the icon
             title: new Text(
               "Dzisiejszy Cino z okazji:",
               style: myTextStyle,
-            )),
+            )
+            icon: new Icon(Icons.today, size: myIconSize, color: Colors.lightGreen)),
 
 
         new MyCard(
