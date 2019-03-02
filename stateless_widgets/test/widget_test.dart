@@ -10,15 +10,36 @@ import 'package:flutter_test/flutter_test.dart';
 import '../lib/main.dart';
 
 void main() {
-  testWidgets('icon to text test', (WidgetTester tester) async {
+  testWidgets('title is displayed', (WidgetTester tester) async {
     await tester.pumpWidget(MaterialApp(
-      home: MyCard(
-        //icon: Icon(Icons.favorite),
-        title: Text("Favorite"),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Daily Cino QAlendar"),
+        ),
       ),
     ));
     
-    expect(find.text("Favorite"), findsOneWidget);
+    expect(find.text("Daily Cino QAlendar"), findsOneWidget);
+  });
+
+  testWidgets("MyCard is not empty", (WidgetTester tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: MyCard(
+        title: Text("Hasło na dziś:"),
+        icon: Icon(Icons.today),
+
+      ),
+    ));
+
+    expect(find.widgetWithText(MyCard, ("Hasło na dziś:")), findsOneWidget);
+    expect(find.widgetWithIcon(MyCard, (Icons.today)), findsOneWidget);
+  });
+
+ testWidgets("there are three cards", (WidgetTester tester) async{
+    await tester.pumpWidget(MaterialApp(
+      home: MyCard(),
+    ));
+    expect(find.byWidget(MyCard()), findsNWidgets(3));
   });
 }
 

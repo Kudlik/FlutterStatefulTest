@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             title: new Text(
               "Dzisiejszy Cino z okazji:",
               style: myTextStyle,
-            )
+            ),
             icon: new Icon(Icons.today, size: myIconSize, color: Colors.lightGreen)),
 
 
